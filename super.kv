@@ -1,0 +1,32 @@
+<MainScreen>:
+    orientation: 'vertical'
+    padding: dp(20)
+    spacing: dp(10)
+
+    # Верхня частина - Статус
+    Label:
+        text: root.status_text
+        font_size: '24sp'
+        size_hint_y: 0.2
+
+    # Центральна частина - Сітка кнопок
+    GridLayout:
+        cols: 2
+        spacing: dp(15)
+
+        Button:
+            text: "Кнопка А"
+            background_color: 0.2, 0.7, 0.3, 1
+            on_release: root.update_status(self.text)
+
+        Button:
+            text: "Кнопка Б"
+            background_color: 0.9, 0.3, 0.2, 1
+            on_release: root.update_status(self.text)
+
+    # Нижня частина - Фіксована панель
+    Button:
+        text: "Вихід"
+        size_hint_y: None
+        height: dp(60)
+        on_release: app.stop()
